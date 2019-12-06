@@ -19,7 +19,7 @@ def index(request):
 
 
 def details(request, squirrel_id):
-    sightings = Sighting.objects.filter(uid=squirrel_id)
+    sightings = Sq.objects.filter(uid=squirrel_id)
     context = {
         'sightings': sightings
     }
@@ -27,7 +27,7 @@ def details(request, squirrel_id):
 
 
 def edit(request, squirrel_id):
-    sighting = Sighting.objects.get(uid=squirrel_id)
+    sighting = Sq.objects.get(uid=squirrel_id)
     if request.method == 'POST':
         form = SquirrelForm(request.POST, instance=sighting)
         if form.is_valid():
@@ -42,7 +42,7 @@ def edit(request, squirrel_id):
 
 
 def delete(request, squirrel_id):
-    sighting = Sighting.objects.filter(uid=squirrel_id)
+    sighting = Sq.objects.filter(uid=squirrel_id)
     sighting.delete()
     return redirect(f'/sightings')
 
