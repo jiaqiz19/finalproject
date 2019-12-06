@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext as _
 # Create your models here.
-
+# test
 class Sq(models.Model):
     def __str__(self):
         return self.name
