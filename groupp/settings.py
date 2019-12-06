@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
