@@ -14,4 +14,4 @@ urlpatterns = [
     path('<str:squirrel_id>/edit/', views.edit),
 
     path('<str:squirrel_id>/delete/', views.delete)
- ]i
+ ]
