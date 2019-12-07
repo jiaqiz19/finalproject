@@ -5,6 +5,8 @@ from . import views
 urlpatterns = [
     path('', views.index),
 
+    path('stats/', views.stats),
+
     path('add/', views.add, name='squirrel_add'),
     # url(r'^add$', views.add),
     # url(r'^<str:uid>$', views.uid),

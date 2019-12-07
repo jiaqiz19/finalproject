@@ -1,14 +1,13 @@
 from django.shortcuts import render
 
-# Create your views here.
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.db.models import Avg, Max, Min, Count
 
+import json
 from .models import Sq
 from .form import SquirrelForm
-
 
 def index(request):
     sqs=Sq.objects.all()
@@ -17,6 +16,12 @@ def index(request):
     }
     return render(request, 'sightings/index.html', context)
 
+def stats(request):
+    sqs=Sq.objects.all()
+    context = {
+        'sqs': sqs,
+    }
+    return render(request, 'sightings/stats.html', context)
 
 def edit(request, squirrel_id):
     sighting = Sq.objects.get(uid=squirrel_id)
@@ -51,3 +56,9 @@ def add(request):
         'form': form,
     }
     return render(request, 'sightings/add.html', context)
+
+def showmap(request):
+    sqs = Sq.objects.all()[0:100]
+    sqList = [{"X": float(sq.X), "Y": float(sq.Y), "ID": sq.uid} for sq in sqs]
+    context = {'sightings': json.dumps(sqList)}
+    return render(request, 'sightings/map.html', context)
