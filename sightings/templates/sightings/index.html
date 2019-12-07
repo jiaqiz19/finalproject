@@ -1,14 +1,29 @@
+<!DOCTYPE html>
 <html>
-	<body>
-		<h1>Squirrel Sightings</h1>
-			{% if sightings %}
-				<ul>
-					{% for sighting in sightings %}
-					<li><a href='/sightings/{{ sighting.uid }}'>{{ sighting.uid }}</a></li>
-					{% endfor %}
-				</ul>
-			{% else %}
-				<p>No sightings are available.</p>
-			{% endif %}
-	</body>
+<body>
+
+<h2>Squirrel Tracking System</h2>
+
+<a href="{% url "squirrel_add" %}">Add New Squirrel</a>
+
+<table>
+<thead>
+    <tr>
+    <th>Squirrel ID</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for sq in sqs %}
+    <tr>
+    <td>{{ sq.uid }}</td>
+    <td><a href="{% url "squirrel_edit" sq.uid  %}">edit</a></td>
+    <td><a href="{% url "squirrel_delete" sq.uid  %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+</body>
 </html>

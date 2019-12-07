@@ -11,19 +11,11 @@ from .form import SquirrelForm
 
 
 def index(request):
-    sightings=Sq.objects.all()
+    sqs=Sq.objects.all()
     context = {
-        'sightings': sightings,
+        'sqs': sqs,
     }
     return render(request, 'sightings/index.html', context)
-
-
-def details(request, squirrel_id):
-    sightings = Sq.objects.filter(uid=squirrel_id)
-    context = {
-        'sightings': sightings
-    }
-    return render(request, 'sightings/details.html', context)
 
 
 def edit(request, squirrel_id):
@@ -32,7 +24,7 @@ def edit(request, squirrel_id):
         form = SquirrelForm(request.POST, instance=sighting)
         if form.is_valid():
             form.save()
-            return redirect(f'/sightings/{squirrel_id}')
+            return redirect(f'/sightings')
     else:
         form = SquirrelForm(instance=sighting)
     context = {

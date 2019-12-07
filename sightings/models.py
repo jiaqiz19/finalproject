@@ -4,14 +4,16 @@ from django.utils.translation import gettext as _
 # test
 class Sq(models.Model):
     def __str__(self):
-        return self.name
+        return self.uid
     X=models.CharField(
         help_text=_('x'),
         max_length=100,
+        default=None,
     )
     Y=models.CharField(
         help_text=_('y'),
         max_length=100,
+        default=None,
     )
     uid=models.CharField(
         help_text=_('unique squirrel id'),
@@ -20,6 +22,7 @@ class Sq(models.Model):
     hectare=models.CharField(
         help_text=_('hectare'),
         max_length=100,
+        default=None,
     )
     
     AM='am'
@@ -37,10 +40,12 @@ class Sq(models.Model):
     )
     date=models.DateField(
         help_text=_('date'),
+        default=None,
     )
     hectarenumber=models.CharField(
         help_text=_('hectare squirrel number'),
         max_length=100,
+        default=None,
     )
     ADULT='adult'
     JUVENILE='juvenile'
@@ -58,30 +63,37 @@ class Sq(models.Model):
     color=models.CharField(
         help_text=_('primary color'),
         max_length=100,
+        default=None,
     )
     hcolor=models.CharField(
         help_text=_('highlight fur color'),
         max_length=100,
+        default=None,
     )
     ccolor=models.CharField(
         help_text=_('combination color'),
         max_length=100,
+        default=None,
     )
     cnotes=models.CharField(
         help_text=_('color notes'),
         max_length=100,
+        default=None,
     )
     location=models.CharField(
         help_text=_('location'),
         max_length=100,
+        default=None,
     )
     measurement=models.CharField(
         help_text=_('measurement'),
         max_length=100,
+        default=None,
     )
     slocation=models.CharField(
         help_text=_('specific location'),
         max_length=100,
+        default=None,
     )
     TRUE='true'
     FALSE='false'
@@ -122,6 +134,7 @@ class Sq(models.Model):
     otheract=models.CharField(
         help_text=_('other activities'),
         max_length=100,
+        default=None,
     )
     kuks=models.CharField(
         help_text=_('kuks'),
@@ -174,28 +187,35 @@ class Sq(models.Model):
     otherinter=models.CharField(
         help_text=_('other interactions'),
         max_length=100,
+        default=None,
     )
     ll=models.CharField(
         help_text=_('lat/long'),
         max_length=100,
+        default=None,
     )
     zc=models.CharField(
         help_text=_('zip codes'),
         max_length=100,
+        default=None,
     )
     cdistricts=models.CharField(
         help_text=_('community districts'),
         max_length=100,
+        default=None,
     )
     bb=models.CharField(
         help_text=_('borough boundaries'),
         max_length=100,
+        default=None,
     )
     ccd=models.CharField(
         help_text=_('city council districts'),
         max_length=100,
+        default=None,
     )
     pp=models.CharField(
         help_text=_('police precincts'),
         max_length=100,
+        default=None,
     )

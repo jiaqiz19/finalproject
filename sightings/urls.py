@@ -5,13 +5,11 @@ from . import views
 urlpatterns = [
     path('', views.index),
 
-    path('add/', views.add),
+    path('add/', views.add, name='squirrel_add'),
     # url(r'^add$', views.add),
-    
-    path('<str:squirrel_id>/', views.details),
     # url(r'^<str:uid>$', views.uid),
 
-    path('<str:squirrel_id>/edit/', views.edit),
+    path('<str:squirrel_id>/', views.edit, name='squirrel_edit'),
 
-    path('<str:squirrel_id>/delete/', views.delete)
+    path('<str:squirrel_id>/delete/', views.delete, name='squirrel_delete')
  ]
