@@ -10,16 +10,37 @@ from .models import Sq
 from .form import SquirrelForm
 
 def index(request):
-    sqs=Sq.objects.all()
+    sqs = Sq.objects.all()
     context = {
         'sqs': sqs,
     }
     return render(request, 'sightings/index.html', context)
 
 def stats(request):
-    sqs=Sq.objects.all()
+    sqs = Sq.objects.all()
+    adultCount = 0
+    colorSet = set()
+    runningCount = 0
+    climbingCount = 0
+    eatingCount = 0
+    for sq in sqs:
+        if sq.age == 'Adult':
+            adultCount += 1
+        if sq.color != None and sq.color != "":
+            colorSet.add(sq.color)
+        if sq.running == 'true':
+            runningCount += 1
+        if sq.climbing == 'true':
+            climbingCount += 1
+        if sq.eating == 'true':
+            eatingCount += 1
+
     context = {
-        'sqs': sqs,
+        'adultCount': adultCount,
+        'colors': list(colorSet),
+        'runningCount': runningCount,
+        'climbingCount': climbingCount,
+        'eatingCount': eatingCount,
     }
     return render(request, 'sightings/stats.html', context)
 

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Squirrel Stats</h2>
+
+<a href="{% url "squirrel_all" %}">All Squirrel Sightings</a>
+
+<ol>
+    <li>Adult Count: {{ adultCount }}</li>
+    <li>Running Count: {{ runningCount }}</li>
+    <li>Climbing Count: {{ climbingCount }}</li>
+    <li>Eating Count: {{ eatingCount }}</li>
+    <li>Colors: {% for color in colors %} {{ color }} {% endfor %}</li>
+</ol>
+
+</body>
+</html>
