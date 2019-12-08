@@ -1,3 +1,3 @@
-from finalproject.wsgi import application
+from groupp.wsgi import application
 
 app = application
