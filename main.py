@@ -1,3 +1,3 @@
 from groupp.wsgi import application
-# from Paul's note
+# from Paul's github
 app = application
