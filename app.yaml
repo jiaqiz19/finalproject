@@ -1,5 +1,5 @@
 runtime: python37
-
+# from Paul's note
 handlers:
 - url: /static
   static_dir: collected-static/
